@@ -1,7 +1,7 @@
 {
   "name": "grunt-metascript",
   "description": "Grunt wrapper for MetaScript preprocessor.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/meinaart/grunt-metascript",
   "author": {
     "name": "Meinaart van Straalen",
