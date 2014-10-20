@@ -1,0 +1,47 @@
+{
+  "name": "grunt-metascript",
+  "description": "Calculates a unique hash for a file and adds it to the file as inline comment. Can be used for file comparison between cached environments.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/meinaart/grunt-metascript",
+  "author": {
+    "name": "Meinaart van Straalen",
+    "email": "meinaart@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/meinaart/grunt-metascript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/meinaart/grunt-metascript/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/meinaart/grunt-metascript/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "dependencies": {
+    "chalk": ">=0.1.0",
+    "metascript": "^1.0.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-simple-mocha": "~0.4.0",
+    "load-grunt-tasks": "~0.1.0"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
