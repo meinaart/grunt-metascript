@@ -1,6 +1,6 @@
 {
   "name": "grunt-metascript",
-  "description": "Calculates a unique hash for a file and adds it to the file as inline comment. Can be used for file comparison between cached environments.",
+  "description": "Grunt wrapper for MetaScript preprocessor.",
   "version": "0.0.1",
   "homepage": "https://github.com/meinaart/grunt-metascript",
   "author": {

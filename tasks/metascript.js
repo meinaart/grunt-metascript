@@ -13,12 +13,12 @@ module.exports = function (grunt) {
   var TRANSFORM = 'transform';
 
   var chalk = require('chalk');
-  var path = require('path');
   var MetaScript = require('metascript');
 
   var defaultOptions = {
     mode: PROGRAM,
-    scope: {}
+    scope: {},
+    encoding: grunt.file.defaultEncoding
   };
 
   grunt.registerMultiTask('metascript', 'Process files with metascript.', function () {
@@ -26,12 +26,11 @@ module.exports = function (grunt) {
 
     this.files.forEach(function (file) {
       file.src.forEach(function (src) {
-        var source = grunt.file.read(src);
-        var filename = path.basename(src);
+        var source = grunt.file.read(src, {encoding: options.encoding});
 
         // Default destination to the same directory
         var dest = file.dest || src;
-        
+
         var action = 'Processed';
         if(!grunt.file.exists(dest)) {
           action = 'Generated';
@@ -45,7 +44,7 @@ module.exports = function (grunt) {
         } else {
           result = source;
         }
-        grunt.file.write(dest, result);
+        grunt.file.write(dest, result, {encoding: options.encoding});
         grunt.log.writeln(chalk.green('✔ ') + chalk.bold(action + ': ') + dest);
       });
     });
