@@ -1,5 +1,4 @@
 /* global suite, test */
-/* jshint quotmark: false */
 var assert = require('assert');
 var fs = require('fs');
 var grunt = require('grunt');
@@ -9,7 +8,7 @@ suite('grunt-metascript', function() {
 
   function readFile(filename) {
     var contents = fs.readFileSync(filename, 'utf8');
-    return contents.replace("\r", "");
+    return contents.replace(/\r/g, '');
   }
   
   suite('generating', function() {
