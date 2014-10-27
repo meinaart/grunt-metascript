@@ -30,8 +30,18 @@ module.exports = function(grunt) {
         },
         expand: true,
         cwd: 'test/in/',
-        src: ['**/*.js', '!somemeta-program.js'],
+        src: ['**/*.js', '!somemeta-program.js', '!nothing.js'],
         dest: 'out/multi/'
+      },
+      unchanged: {
+        options: {
+          mode: 'transform',
+          onlyUpdateWhenChanged: true
+        },
+        expand: true,
+        cwd: 'test/in/',
+        src: 'nothing.js',
+        dest: 'out/'
       }
     },
     watch: {
@@ -44,6 +54,16 @@ module.exports = function(grunt) {
     clean: [
       'out/'
     ],
+    copy: {
+      nothing: {
+        options: {
+          timestamp: true,
+          mode: true
+        },
+        src: 'test/in/nothing.js',
+        dest: 'out/nothing.js'
+      }
+    },
     simplemocha: {
       options: {
         ui: 'tdd',
@@ -58,7 +78,7 @@ module.exports = function(grunt) {
   grunt.loadTasks('tasks');
 
   // Default task.
-  grunt.registerTask('default', ['clean', 'jshint', 'metascript', 'simplemocha']);
+  grunt.registerTask('default', ['clean', 'copy','jshint', 'metascript', 'simplemocha']);
   grunt.registerTask('dev', ['watch']);
 
 

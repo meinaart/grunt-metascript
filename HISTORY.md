@@ -1,3 +1,8 @@
+0.0.4 / 2014-10-27
+==================
+
+  * Added onlyUpdateWhenChanged option which only writes a new file when contents of processed file is different then target file
+
 0.0.3 / 2014-10-21
 ==================
 

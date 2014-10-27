@@ -11,7 +11,7 @@ suite('grunt-metascript', function() {
     return contents.replace(/\r/g, '');
   }
   
-  suite('generating', function() {
+  suite('generating:', function() {
     test('program mode', function() {
       assert.ok(fs.existsSync('out/somemeta-program.js'));
       assert.equal(readFile('out/somemeta-program.js'), readFile('test/fixtures/somemeta-program.js'));
@@ -21,16 +21,30 @@ suite('grunt-metascript', function() {
       assert.ok(fs.existsSync('out/somemeta-transform.js'));
       assert.equal(readFile('out/somemeta-transform.js'), readFile('test/fixtures/somemeta-transform.js'));
     });
+  });
 
-    test('multiple files: exclude program', function() {
+  suite('multiple files:', function() {
+    test('exclude program', function() {
       assert.ok(!fs.existsSync('out/multi/somemeta-program.js'));
     });
 
-    test('multiple files transformation', function() {
+    test('transformation', function() {
       grunt.file.recurse('out/multi/', function(abspath, rootdir, subdir, filename) {
         assert.ok(fs.existsSync(abspath));
         assert.equal(readFile(abspath), readFile('test/fixtures/multi/' + (subdir?subdir+'/':'') + filename));
       });
+    });
+  });
+
+  suite('update unchanged files:', function() {
+    test('file is unchanged', function() {
+      assert.ok(fs.existsSync('out/nothing.js'));
+      assert.equal(readFile('out/nothing.js'), readFile('test/in/nothing.js'));
+    });
+
+    test('file modified date is unchanged', function() {
+      assert.ok(fs.existsSync('out/nothing.js'));
+      assert.strictEqual(fs.statSync('test/in/nothing.js').mtime.toString(), fs.statSync('out/nothing.js').mtime.toString());
     });
   });
 });
