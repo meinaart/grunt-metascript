@@ -36,7 +36,8 @@ module.exports = function(grunt) {
       unchanged: {
         options: {
           mode: 'transform',
-          onlyUpdateWhenChanged: true
+          onlyUpdateWhenChanged: true,
+          logLevel: 3
         },
         expand: true,
         cwd: 'test/in/',

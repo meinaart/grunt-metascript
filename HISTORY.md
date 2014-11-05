@@ -1,3 +1,8 @@
+0.0.5 / 2014-11-05
+==================
+
+  * Added logLevel to control verbosity of logging
+
 0.0.4 / 2014-10-27
 ==================
 

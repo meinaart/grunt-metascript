@@ -32,7 +32,14 @@ grunt.initConfig({
         mode: 'program', /* can be either "program" or "transform" */
         scope: { /* object with variables required in MetaScript scope */
           WHAT: true
-        }
+        },
+        // Sets the loglevel, there are 4 levels:
+        // LOG_NONE = 0
+        // LOG_ERROR = 1
+        // LOG_INFO = 2
+        // LOG_TRACE = 3
+        // Default is: 2
+        logLevel: 2
       },
       src: 'test/in/somemeta.js',
       dest: 'out/somemeta-program.js',
