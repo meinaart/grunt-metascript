@@ -68,6 +68,7 @@ module.exports = function (grunt) {
           }
         } catch(exc) {
           log(exc, LOG_ERROR);
+          grunt.fail.fatal(exc);
         }
 
         var write = true;
